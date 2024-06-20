@@ -1,0 +1,210 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\denis\\source\\repos\\PresentationLibrary\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{EB7DC4E6-F9B3-4241-9856-5F4AB15C6EC7}|PresentationLibrary\\PresentationLibrary.csproj|C:\\Users\\denis\\source\\repos\\PresentationLibrary\\presentationlibrary\\pages\\deleterowexamplepage.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
+      "RelativeMoniker": "D:0:0:{EB7DC4E6-F9B3-4241-9856-5F4AB15C6EC7}|PresentationLibrary\\PresentationLibrary.csproj|solutionrelative:presentationlibrary\\pages\\deleterowexamplepage.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EB7DC4E6-F9B3-4241-9856-5F4AB15C6EC7}|PresentationLibrary\\PresentationLibrary.csproj|C:\\Users\\denis\\source\\repos\\PresentationLibrary\\presentationlibrary\\pages\\deleterowexamplepage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{EB7DC4E6-F9B3-4241-9856-5F4AB15C6EC7}|PresentationLibrary\\PresentationLibrary.csproj|solutionrelative:presentationlibrary\\pages\\deleterowexamplepage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EB7DC4E6-F9B3-4241-9856-5F4AB15C6EC7}|PresentationLibrary\\PresentationLibrary.csproj|C:\\Users\\denis\\source\\repos\\PresentationLibrary\\presentationlibrary\\pages\\createtableexamplepage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{EB7DC4E6-F9B3-4241-9856-5F4AB15C6EC7}|PresentationLibrary\\PresentationLibrary.csproj|solutionrelative:presentationlibrary\\pages\\createtableexamplepage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EB7DC4E6-F9B3-4241-9856-5F4AB15C6EC7}|PresentationLibrary\\PresentationLibrary.csproj|c:\\users\\denis\\source\\repos\\presentationlibrary\\presentationlibrary\\pages\\createtableexamplepage.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
+      "RelativeMoniker": "D:0:0:{EB7DC4E6-F9B3-4241-9856-5F4AB15C6EC7}|PresentationLibrary\\PresentationLibrary.csproj|solutionrelative:presentationlibrary\\pages\\createtableexamplepage.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\denis\\source\\repos\\LibraryCloudDB\\LibraryCloudDB\\Http\\HttpClientExtensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EB7DC4E6-F9B3-4241-9856-5F4AB15C6EC7}|PresentationLibrary\\PresentationLibrary.csproj|C:\\Users\\denis\\source\\repos\\PresentationLibrary\\presentationlibrary\\pages\\getdataexamplepage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{EB7DC4E6-F9B3-4241-9856-5F4AB15C6EC7}|PresentationLibrary\\PresentationLibrary.csproj|solutionrelative:presentationlibrary\\pages\\getdataexamplepage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EB7DC4E6-F9B3-4241-9856-5F4AB15C6EC7}|PresentationLibrary\\PresentationLibrary.csproj|C:\\Users\\denis\\source\\repos\\PresentationLibrary\\presentationlibrary\\pages\\getdataexamplepage.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
+      "RelativeMoniker": "D:0:0:{EB7DC4E6-F9B3-4241-9856-5F4AB15C6EC7}|PresentationLibrary\\PresentationLibrary.csproj|solutionrelative:presentationlibrary\\pages\\getdataexamplepage.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EB7DC4E6-F9B3-4241-9856-5F4AB15C6EC7}|PresentationLibrary\\PresentationLibrary.csproj|C:\\Users\\denis\\source\\repos\\PresentationLibrary\\presentationlibrary\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EB7DC4E6-F9B3-4241-9856-5F4AB15C6EC7}|PresentationLibrary\\PresentationLibrary.csproj|solutionrelative:presentationlibrary\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EB7DC4E6-F9B3-4241-9856-5F4AB15C6EC7}|PresentationLibrary\\PresentationLibrary.csproj|C:\\Users\\denis\\source\\repos\\PresentationLibrary\\presentationlibrary\\pages\\updaterowexamplepage.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
+      "RelativeMoniker": "D:0:0:{EB7DC4E6-F9B3-4241-9856-5F4AB15C6EC7}|PresentationLibrary\\PresentationLibrary.csproj|solutionrelative:presentationlibrary\\pages\\updaterowexamplepage.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EB7DC4E6-F9B3-4241-9856-5F4AB15C6EC7}|PresentationLibrary\\PresentationLibrary.csproj|C:\\Users\\denis\\source\\repos\\PresentationLibrary\\presentationlibrary\\pages\\updaterowexamplepage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{EB7DC4E6-F9B3-4241-9856-5F4AB15C6EC7}|PresentationLibrary\\PresentationLibrary.csproj|solutionrelative:presentationlibrary\\pages\\updaterowexamplepage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EB7DC4E6-F9B3-4241-9856-5F4AB15C6EC7}|PresentationLibrary\\PresentationLibrary.csproj|C:\\Users\\denis\\source\\repos\\PresentationLibrary\\presentationlibrary\\pages\\addrowexamplepage.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
+      "RelativeMoniker": "D:0:0:{EB7DC4E6-F9B3-4241-9856-5F4AB15C6EC7}|PresentationLibrary\\PresentationLibrary.csproj|solutionrelative:presentationlibrary\\pages\\addrowexamplepage.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EB7DC4E6-F9B3-4241-9856-5F4AB15C6EC7}|PresentationLibrary\\PresentationLibrary.csproj|C:\\Users\\denis\\source\\repos\\PresentationLibrary\\presentationlibrary\\pages\\addrowexamplepage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{EB7DC4E6-F9B3-4241-9856-5F4AB15C6EC7}|PresentationLibrary\\PresentationLibrary.csproj|solutionrelative:presentationlibrary\\pages\\addrowexamplepage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "HttpClientExtensions.cs",
+              "DocumentMoniker": "C:\\Users\\denis\\source\\repos\\LibraryCloudDB\\LibraryCloudDB\\Http\\HttpClientExtensions.cs",
+              "RelativeDocumentMoniker": "..\\LibraryCloudDB\\LibraryCloudDB\\Http\\HttpClientExtensions.cs",
+              "ToolTip": "C:\\Users\\denis\\source\\repos\\LibraryCloudDB\\LibraryCloudDB\\Http\\HttpClientExtensions.cs",
+              "RelativeToolTip": "..\\LibraryCloudDB\\LibraryCloudDB\\Http\\HttpClientExtensions.cs",
+              "ViewState": "AQIAACQAAAAAAAAAAAAAABEAAABXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-10T19:18:46.42Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DeleteRowExamplePage.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\denis\\source\\repos\\PresentationLibrary\\PresentationLibrary\\Pages\\DeleteRowExamplePage.xaml.cs",
+              "RelativeDocumentMoniker": "PresentationLibrary\\Pages\\DeleteRowExamplePage.xaml.cs",
+              "ToolTip": "C:\\Users\\denis\\source\\repos\\PresentationLibrary\\PresentationLibrary\\Pages\\DeleteRowExamplePage.xaml.cs",
+              "RelativeToolTip": "PresentationLibrary\\Pages\\DeleteRowExamplePage.xaml.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAACcAAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-06T18:23:48.859Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DeleteRowExamplePage.xaml",
+              "DocumentMoniker": "C:\\Users\\denis\\source\\repos\\PresentationLibrary\\PresentationLibrary\\Pages\\DeleteRowExamplePage.xaml",
+              "RelativeDocumentMoniker": "PresentationLibrary\\Pages\\DeleteRowExamplePage.xaml",
+              "ToolTip": "C:\\Users\\denis\\source\\repos\\PresentationLibrary\\PresentationLibrary\\Pages\\DeleteRowExamplePage.xaml",
+              "RelativeToolTip": "PresentationLibrary\\Pages\\DeleteRowExamplePage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-06-06T18:23:05.213Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\denis\\source\\repos\\PresentationLibrary\\PresentationLibrary\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "PresentationLibrary\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\denis\\source\\repos\\PresentationLibrary\\PresentationLibrary\\MainWindow.xaml.cs",
+              "RelativeToolTip": "PresentationLibrary\\MainWindow.xaml.cs",
+              "ViewState": "AQIAADMAAAAAAAAAAAAAAFQAAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-06T18:19:50.035Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CreateTableExamplePage.xaml",
+              "DocumentMoniker": "C:\\Users\\denis\\source\\repos\\PresentationLibrary\\PresentationLibrary\\Pages\\CreateTableExamplePage.xaml",
+              "RelativeDocumentMoniker": "PresentationLibrary\\Pages\\CreateTableExamplePage.xaml",
+              "ToolTip": "C:\\Users\\denis\\source\\repos\\PresentationLibrary\\PresentationLibrary\\Pages\\CreateTableExamplePage.xaml",
+              "RelativeToolTip": "PresentationLibrary\\Pages\\CreateTableExamplePage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-06-06T18:00:27.29Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CreateTableExamplePage.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\denis\\source\\repos\\PresentationLibrary\\PresentationLibrary\\Pages\\CreateTableExamplePage.xaml.cs",
+              "RelativeDocumentMoniker": "PresentationLibrary\\Pages\\CreateTableExamplePage.xaml.cs",
+              "ToolTip": "C:\\Users\\denis\\source\\repos\\PresentationLibrary\\PresentationLibrary\\Pages\\CreateTableExamplePage.xaml.cs",
+              "RelativeToolTip": "PresentationLibrary\\Pages\\CreateTableExamplePage.xaml.cs",
+              "ViewState": "AQIAABsAAAAAAAAAAAAAACkAAABgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-06T18:01:57.146Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "GetDataExamplePage.xaml",
+              "DocumentMoniker": "C:\\Users\\denis\\source\\repos\\PresentationLibrary\\PresentationLibrary\\Pages\\GetDataExamplePage.xaml",
+              "RelativeDocumentMoniker": "PresentationLibrary\\Pages\\GetDataExamplePage.xaml",
+              "ToolTip": "C:\\Users\\denis\\source\\repos\\PresentationLibrary\\PresentationLibrary\\Pages\\GetDataExamplePage.xaml",
+              "RelativeToolTip": "PresentationLibrary\\Pages\\GetDataExamplePage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-06-06T18:30:29.979Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "GetDataExamplePage.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\denis\\source\\repos\\PresentationLibrary\\PresentationLibrary\\Pages\\GetDataExamplePage.xaml.cs",
+              "RelativeDocumentMoniker": "PresentationLibrary\\Pages\\GetDataExamplePage.xaml.cs",
+              "ToolTip": "C:\\Users\\denis\\source\\repos\\PresentationLibrary\\PresentationLibrary\\Pages\\GetDataExamplePage.xaml.cs",
+              "RelativeToolTip": "PresentationLibrary\\Pages\\GetDataExamplePage.xaml.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-06T18:30:39.559Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "UpdateRowExamplePage.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\denis\\source\\repos\\PresentationLibrary\\PresentationLibrary\\Pages\\UpdateRowExamplePage.xaml.cs",
+              "RelativeDocumentMoniker": "PresentationLibrary\\Pages\\UpdateRowExamplePage.xaml.cs",
+              "ToolTip": "C:\\Users\\denis\\source\\repos\\PresentationLibrary\\PresentationLibrary\\Pages\\UpdateRowExamplePage.xaml.cs",
+              "RelativeToolTip": "PresentationLibrary\\Pages\\UpdateRowExamplePage.xaml.cs",
+              "ViewState": "AQIAAAQAAAAAAAAAAAAYwBQAAAAEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-06T18:15:33.881Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "UpdateRowExamplePage.xaml",
+              "DocumentMoniker": "C:\\Users\\denis\\source\\repos\\PresentationLibrary\\PresentationLibrary\\Pages\\UpdateRowExamplePage.xaml",
+              "RelativeDocumentMoniker": "PresentationLibrary\\Pages\\UpdateRowExamplePage.xaml",
+              "ToolTip": "C:\\Users\\denis\\source\\repos\\PresentationLibrary\\PresentationLibrary\\Pages\\UpdateRowExamplePage.xaml",
+              "RelativeToolTip": "PresentationLibrary\\Pages\\UpdateRowExamplePage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-06-06T18:14:49.217Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "AddRowExamplePage.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\denis\\source\\repos\\PresentationLibrary\\PresentationLibrary\\Pages\\AddRowExamplePage.xaml.cs",
+              "RelativeDocumentMoniker": "PresentationLibrary\\Pages\\AddRowExamplePage.xaml.cs",
+              "ToolTip": "C:\\Users\\denis\\source\\repos\\PresentationLibrary\\PresentationLibrary\\Pages\\AddRowExamplePage.xaml.cs",
+              "RelativeToolTip": "PresentationLibrary\\Pages\\AddRowExamplePage.xaml.cs",
+              "ViewState": "AQIAABgAAAAAAAAAAAAEwDsAAAAnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-06T18:09:04.236Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "AddRowExamplePage.xaml",
+              "DocumentMoniker": "C:\\Users\\denis\\source\\repos\\PresentationLibrary\\PresentationLibrary\\Pages\\AddRowExamplePage.xaml",
+              "RelativeDocumentMoniker": "PresentationLibrary\\Pages\\AddRowExamplePage.xaml",
+              "ToolTip": "C:\\Users\\denis\\source\\repos\\PresentationLibrary\\PresentationLibrary\\Pages\\AddRowExamplePage.xaml",
+              "RelativeToolTip": "PresentationLibrary\\Pages\\AddRowExamplePage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-06-06T18:00:03.11Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
