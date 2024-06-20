@@ -1,0 +1,149 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\denis\\source\\repos\\LibraryCloudDB\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{0CDA3141-87F2-494C-A8ED-44F4A08536B4}|LibraryCloudDB\\LibraryCloudDB.csproj|c:\\users\\denis\\source\\repos\\libraryclouddb\\libraryclouddb\\query\\clouddbquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0CDA3141-87F2-494C-A8ED-44F4A08536B4}|LibraryCloudDB\\LibraryCloudDB.csproj|solutionrelative:libraryclouddb\\query\\clouddbquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0CDA3141-87F2-494C-A8ED-44F4A08536B4}|LibraryCloudDB\\LibraryCloudDB.csproj|C:\\Users\\denis\\source\\repos\\LibraryCloudDB\\libraryclouddb\\http\\httpclientextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0CDA3141-87F2-494C-A8ED-44F4A08536B4}|LibraryCloudDB\\LibraryCloudDB.csproj|solutionrelative:libraryclouddb\\http\\httpclientextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0CDA3141-87F2-494C-A8ED-44F4A08536B4}|LibraryCloudDB\\LibraryCloudDB.csproj|C:\\Users\\denis\\source\\repos\\LibraryCloudDB\\libraryclouddb\\createtable\\createrelationships.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0CDA3141-87F2-494C-A8ED-44F4A08536B4}|LibraryCloudDB\\LibraryCloudDB.csproj|solutionrelative:libraryclouddb\\createtable\\createrelationships.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0CDA3141-87F2-494C-A8ED-44F4A08536B4}|LibraryCloudDB\\LibraryCloudDB.csproj|C:\\Users\\denis\\source\\repos\\LibraryCloudDB\\libraryclouddb\\createtable\\createtableobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0CDA3141-87F2-494C-A8ED-44F4A08536B4}|LibraryCloudDB\\LibraryCloudDB.csproj|solutionrelative:libraryclouddb\\createtable\\createtableobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0CDA3141-87F2-494C-A8ED-44F4A08536B4}|LibraryCloudDB\\LibraryCloudDB.csproj|C:\\Users\\denis\\source\\repos\\LibraryCloudDB\\libraryclouddb\\authorizationclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0CDA3141-87F2-494C-A8ED-44F4A08536B4}|LibraryCloudDB\\LibraryCloudDB.csproj|solutionrelative:libraryclouddb\\authorizationclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0CDA3141-87F2-494C-A8ED-44F4A08536B4}|LibraryCloudDB\\LibraryCloudDB.csproj|C:\\Users\\denis\\source\\repos\\LibraryCloudDB\\libraryclouddb\\clouddbclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0CDA3141-87F2-494C-A8ED-44F4A08536B4}|LibraryCloudDB\\LibraryCloudDB.csproj|solutionrelative:libraryclouddb\\clouddbclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0CDA3141-87F2-494C-A8ED-44F4A08536B4}|LibraryCloudDB\\LibraryCloudDB.csproj|C:\\Users\\denis\\source\\repos\\LibraryCloudDB\\libraryclouddb\\clouddbobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0CDA3141-87F2-494C-A8ED-44F4A08536B4}|LibraryCloudDB\\LibraryCloudDB.csproj|solutionrelative:libraryclouddb\\clouddbobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0CDA3141-87F2-494C-A8ED-44F4A08536B4}|LibraryCloudDB\\LibraryCloudDB.csproj|C:\\Users\\denis\\source\\repos\\LibraryCloudDB\\libraryclouddb\\createtable\\createfield.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0CDA3141-87F2-494C-A8ED-44F4A08536B4}|LibraryCloudDB\\LibraryCloudDB.csproj|solutionrelative:libraryclouddb\\createtable\\createfield.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AuthorizationClient.cs",
+              "DocumentMoniker": "C:\\Users\\denis\\source\\repos\\LibraryCloudDB\\LibraryCloudDB\\AuthorizationClient.cs",
+              "RelativeDocumentMoniker": "LibraryCloudDB\\AuthorizationClient.cs",
+              "ToolTip": "C:\\Users\\denis\\source\\repos\\LibraryCloudDB\\LibraryCloudDB\\AuthorizationClient.cs",
+              "RelativeToolTip": "LibraryCloudDB\\AuthorizationClient.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-06T17:50:16.802Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "CloudDBClient.cs",
+              "DocumentMoniker": "C:\\Users\\denis\\source\\repos\\LibraryCloudDB\\LibraryCloudDB\\CloudDBClient.cs",
+              "RelativeDocumentMoniker": "LibraryCloudDB\\CloudDBClient.cs",
+              "ToolTip": "C:\\Users\\denis\\source\\repos\\LibraryCloudDB\\LibraryCloudDB\\CloudDBClient.cs",
+              "RelativeToolTip": "LibraryCloudDB\\CloudDBClient.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-06T17:50:03.2Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "CloudDBObject.cs",
+              "DocumentMoniker": "C:\\Users\\denis\\source\\repos\\LibraryCloudDB\\LibraryCloudDB\\CloudDBObject.cs",
+              "RelativeDocumentMoniker": "LibraryCloudDB\\CloudDBObject.cs",
+              "ToolTip": "C:\\Users\\denis\\source\\repos\\LibraryCloudDB\\LibraryCloudDB\\CloudDBObject.cs",
+              "RelativeToolTip": "LibraryCloudDB\\CloudDBObject.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-06T17:49:49.794Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CloudDBQuery.cs",
+              "DocumentMoniker": "C:\\Users\\denis\\source\\repos\\LibraryCloudDB\\LibraryCloudDB\\Query\\CloudDBQuery.cs",
+              "RelativeDocumentMoniker": "LibraryCloudDB\\Query\\CloudDBQuery.cs",
+              "ToolTip": "C:\\Users\\denis\\source\\repos\\LibraryCloudDB\\LibraryCloudDB\\Query\\CloudDBQuery.cs",
+              "RelativeToolTip": "LibraryCloudDB\\Query\\CloudDBQuery.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAC4AAABOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-06T17:49:27.953Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "CreateField.cs",
+              "DocumentMoniker": "C:\\Users\\denis\\source\\repos\\LibraryCloudDB\\LibraryCloudDB\\CreateTable\\CreateField.cs",
+              "RelativeDocumentMoniker": "LibraryCloudDB\\CreateTable\\CreateField.cs",
+              "ToolTip": "C:\\Users\\denis\\source\\repos\\LibraryCloudDB\\LibraryCloudDB\\CreateTable\\CreateField.cs",
+              "RelativeToolTip": "LibraryCloudDB\\CreateTable\\CreateField.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABsAAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-06T17:48:48.226Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CreateRelationships.cs",
+              "DocumentMoniker": "C:\\Users\\denis\\source\\repos\\LibraryCloudDB\\LibraryCloudDB\\CreateTable\\CreateRelationships.cs",
+              "RelativeDocumentMoniker": "LibraryCloudDB\\CreateTable\\CreateRelationships.cs",
+              "ToolTip": "C:\\Users\\denis\\source\\repos\\LibraryCloudDB\\LibraryCloudDB\\CreateTable\\CreateRelationships.cs",
+              "RelativeToolTip": "LibraryCloudDB\\CreateTable\\CreateRelationships.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-06T17:48:38.185Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CreateTableObject.cs",
+              "DocumentMoniker": "C:\\Users\\denis\\source\\repos\\LibraryCloudDB\\LibraryCloudDB\\CreateTable\\CreateTableObject.cs",
+              "RelativeDocumentMoniker": "LibraryCloudDB\\CreateTable\\CreateTableObject.cs",
+              "ToolTip": "C:\\Users\\denis\\source\\repos\\LibraryCloudDB\\LibraryCloudDB\\CreateTable\\CreateTableObject.cs",
+              "RelativeToolTip": "LibraryCloudDB\\CreateTable\\CreateTableObject.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABoAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-06T17:48:30.827Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "HttpClientExtensions.cs",
+              "DocumentMoniker": "C:\\Users\\denis\\source\\repos\\LibraryCloudDB\\LibraryCloudDB\\Http\\HttpClientExtensions.cs",
+              "RelativeDocumentMoniker": "LibraryCloudDB\\Http\\HttpClientExtensions.cs",
+              "ToolTip": "C:\\Users\\denis\\source\\repos\\LibraryCloudDB\\LibraryCloudDB\\Http\\HttpClientExtensions.cs",
+              "RelativeToolTip": "LibraryCloudDB\\Http\\HttpClientExtensions.cs",
+              "ViewState": "AQIAABEAAAAAAAAAAAAYwCUAAAAxAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-06T17:48:17.575Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
