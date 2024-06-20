@@ -1,0 +1,261 @@
+@import '_content/Blazor.Bootstrap/Blazor.Bootstrap.bundle.scp.css';
+
+/* _content/CloudDB/Components/Layout/MainLayout.razor.rz.scp.css */
+.page[b-5hs1444ig4] {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+main[b-5hs1444ig4] {
+    flex: 1;
+}
+
+.sidebar[b-5hs1444ig4] {
+    background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);
+}
+
+.top-row[b-5hs1444ig4] {
+    background-color: #f7f7f7;
+    border-bottom: 1px solid #d6d5d5;
+    justify-content: flex-end;
+    height: 3.5rem;
+    display: flex;
+    align-items: center;
+}
+
+    .top-row[b-5hs1444ig4]  a, .top-row[b-5hs1444ig4]  .btn-link {
+        white-space: nowrap;
+        margin-left: 1.5rem;
+        text-decoration: none;
+    }
+
+    .top-row[b-5hs1444ig4]  a:hover, .top-row[b-5hs1444ig4]  .btn-link:hover {
+        text-decoration: underline;
+    }
+
+    .top-row[b-5hs1444ig4]  a:first-child {
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+@media (max-width: 640.98px) {
+    .top-row[b-5hs1444ig4] {
+        justify-content: space-between;
+    }
+
+    .top-row[b-5hs1444ig4]  a, .top-row[b-5hs1444ig4]  .btn-link {
+        margin-left: 0;
+    }
+}
+
+@media (min-width: 641px) {
+    .page[b-5hs1444ig4] {
+        flex-direction: row;
+    }
+
+    .sidebar[b-5hs1444ig4] {
+        width: 250px;
+        height: 100vh;
+        position: sticky;
+        top: 0;
+    }
+
+    .top-row[b-5hs1444ig4] {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+    }
+
+    .top-row.auth[b-5hs1444ig4]  a:first-child {
+        flex: 1;
+        text-align: right;
+        width: 0;
+    }
+
+    .top-row[b-5hs1444ig4], article[b-5hs1444ig4] {
+        padding-left: 2rem !important;
+        padding-right: 1.5rem !important;
+    }
+}
+
+#blazor-error-ui[b-5hs1444ig4] {
+    background: lightyellow;
+    bottom: 0;
+    box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.2);
+    display: none;
+    left: 0;
+    padding: 0.6rem 1.25rem 0.7rem 1.25rem;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+    #blazor-error-ui .dismiss[b-5hs1444ig4] {
+        cursor: pointer;
+        position: absolute;
+        right: 0.75rem;
+        top: 0.5rem;
+    }
+/* _content/CloudDB/Components/Pages/Authentication/Authorization.razor.rz.scp.css */
+.textAuth[b-c3azvd4yki] {
+    color: white;
+}
+
+.rightCol[b-c3azvd4yki] {
+    height: 100vh;
+}
+
+.link[b-c3azvd4yki] {
+    opacity: 0.6;
+    color: white;
+    text-decoration: none;
+}
+
+    .link:hover[b-c3azvd4yki] {
+        opacity: 1;
+    }
+/* _content/CloudDB/Components/Pages/Authentication/Registration.razor.rz.scp.css */
+.textAuth[b-n6ojxl7dy4] {
+    color: white;
+}
+
+.rightCol[b-n6ojxl7dy4] {
+    height: 100vh;
+}
+
+.link[b-n6ojxl7dy4] {
+    opacity: 0.6;
+    color: white;
+    text-decoration: none;
+}
+.link:hover[b-n6ojxl7dy4]{
+    opacity: 1;
+}
+/* _content/CloudDB/Components/Pages/Home.razor.rz.scp.css */
+.trashIcon[b-4cod95knmz] {
+    height: 20px;
+    width: 20px;
+    color: rgb(200, 200, 200);
+    transition-duration: 0.3s;
+    transition-property: color, height, width;
+}
+.trashIcon:hover[b-4cod95knmz] 
+{
+    color: red;
+    height: 21px;
+    width: 21px;
+}
+
+.penIcon[b-4cod95knmz] {
+    height: 20px;
+    width: 20px;
+    color: rgb(200, 200, 200);
+    transition-duration: 0.3s;
+    transition-property: color, height, width;
+}
+
+.penIcon:hover[b-4cod95knmz] {
+    color: rgb(122, 90, 233);
+    height: 21px;
+    width: 21px;
+}
+
+.playIcon[b-4cod95knmz] {
+    height: 22px;
+    width: 22px;
+    color: rgb(200, 200, 200);
+    transition-duration: 0.3s;
+    transition-property: color, height, width;
+}
+
+.playIcon:hover[b-4cod95knmz] {
+    color: green;
+    height: 23px;
+    width: 23px;
+}
+
+.codeIcon[b-4cod95knmz] {
+    height: 20px;
+    width: 20px;
+    color: rgb(200, 200, 200);
+    transition-duration: 0.3s;
+    transition-property: color, height, width;
+}
+
+.codeIcon:hover[b-4cod95knmz] {
+    color: white;
+    height: 21px;
+    width: 21px;
+}
+
+.divbackground[b-4cod95knmz]
+{
+    max-height: 100px;
+    background: rgba(17, 17, 17, 0.80)
+}
+/* _content/CloudDB/Components/Pages/SqlRequest.razor.rz.scp.css */
+.playIcon[b-2f9qs8soru] {
+    color: green;
+    width: 40px;
+    height: 40px;
+    transition-duration: 0.3s;
+    transition-property: color;
+}
+
+.playIcon:hover[b-2f9qs8soru]{
+    color: greenyellow;
+}
+
+.downloadIcon[b-2f9qs8soru] {
+    width: 35px;
+    height: 35px;
+    color: rgb(200, 200, 200);
+    transition-duration: 0.3s;
+    transition-property: color;
+}
+
+.downloadIcon:hover[b-2f9qs8soru] {
+    color: white;
+}
+
+.broomIcon[b-2f9qs8soru] {
+    width: 35px;
+    height: 35px;
+    color: rgb(200, 200, 200);
+    transition-duration: 0.3s;
+    transition-property: color;
+}
+
+.broomIcon:hover[b-2f9qs8soru] {
+    color: white;
+}
+/* _content/CloudDB/Components/Pages/Workspace.razor.rz.scp.css */
+.buttonNavBar[b-ujyv78trzl] {
+    background: rgb(212, 204, 255);
+    transition-duration: 0.1s;
+    transition-property: background;
+}
+
+.buttonNavBar:hover[b-ujyv78trzl] {
+    background: rgb(177, 162, 255);
+}
+
+.navBarScroll[b-ujyv78trzl] {
+    max-height: var(--bs-scroll-height, 87.5vh);
+    overflow-y: auto;
+}
+
+.trashIcon[b-ujyv78trzl] {
+    height: 20px;
+    width: 20px;
+    color: rgb(200, 200, 200);
+    transition-duration: 0.3s;
+    transition-property: color, height, width;
+}
+
+.trashIcon:hover[b-ujyv78trzl] {
+    color: red;
+    height: 20.5px;
+    width: 20.5px;
+}

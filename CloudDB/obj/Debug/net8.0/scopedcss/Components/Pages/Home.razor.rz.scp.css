@@ -1,0 +1,61 @@
+.trashIcon[b-4cod95knmz] {
+    height: 20px;
+    width: 20px;
+    color: rgb(200, 200, 200);
+    transition-duration: 0.3s;
+    transition-property: color, height, width;
+}
+.trashIcon:hover[b-4cod95knmz] 
+{
+    color: red;
+    height: 21px;
+    width: 21px;
+}
+
+.penIcon[b-4cod95knmz] {
+    height: 20px;
+    width: 20px;
+    color: rgb(200, 200, 200);
+    transition-duration: 0.3s;
+    transition-property: color, height, width;
+}
+
+.penIcon:hover[b-4cod95knmz] {
+    color: rgb(122, 90, 233);
+    height: 21px;
+    width: 21px;
+}
+
+.playIcon[b-4cod95knmz] {
+    height: 22px;
+    width: 22px;
+    color: rgb(200, 200, 200);
+    transition-duration: 0.3s;
+    transition-property: color, height, width;
+}
+
+.playIcon:hover[b-4cod95knmz] {
+    color: green;
+    height: 23px;
+    width: 23px;
+}
+
+.codeIcon[b-4cod95knmz] {
+    height: 20px;
+    width: 20px;
+    color: rgb(200, 200, 200);
+    transition-duration: 0.3s;
+    transition-property: color, height, width;
+}
+
+.codeIcon:hover[b-4cod95knmz] {
+    color: white;
+    height: 21px;
+    width: 21px;
+}
+
+.divbackground[b-4cod95knmz]
+{
+    max-height: 100px;
+    background: rgba(17, 17, 17, 0.80)
+}

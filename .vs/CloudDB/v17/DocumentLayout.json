@@ -1,0 +1,188 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\denis\\source\\repos\\CloudDB\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F88E0AD8-059B-481E-90FC-175EFF87E90E}|CloudDB\\CloudDB.csproj|C:\\Users\\denis\\source\\repos\\CloudDB\\clouddb\\components\\pages\\workspace.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F88E0AD8-059B-481E-90FC-175EFF87E90E}|CloudDB\\CloudDB.csproj|solutionrelative:clouddb\\components\\pages\\workspace.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F88E0AD8-059B-481E-90FC-175EFF87E90E}|CloudDB\\CloudDB.csproj|C:\\Users\\denis\\source\\repos\\CloudDB\\clouddb\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F88E0AD8-059B-481E-90FC-175EFF87E90E}|CloudDB\\CloudDB.csproj|solutionrelative:clouddb\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F88E0AD8-059B-481E-90FC-175EFF87E90E}|CloudDB\\CloudDB.csproj|C:\\Users\\denis\\source\\repos\\CloudDB\\clouddb\\utils\\serverrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F88E0AD8-059B-481E-90FC-175EFF87E90E}|CloudDB\\CloudDB.csproj|solutionrelative:clouddb\\utils\\serverrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F88E0AD8-059B-481E-90FC-175EFF87E90E}|CloudDB\\CloudDB.csproj|c:\\users\\denis\\source\\repos\\clouddb\\clouddb\\utils\\icookie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F88E0AD8-059B-481E-90FC-175EFF87E90E}|CloudDB\\CloudDB.csproj|solutionrelative:clouddb\\utils\\icookie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F88E0AD8-059B-481E-90FC-175EFF87E90E}|CloudDB\\CloudDB.csproj|c:\\users\\denis\\source\\repos\\clouddb\\clouddb\\utils\\fileutil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F88E0AD8-059B-481E-90FC-175EFF87E90E}|CloudDB\\CloudDB.csproj|solutionrelative:clouddb\\utils\\fileutil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F88E0AD8-059B-481E-90FC-175EFF87E90E}|CloudDB\\CloudDB.csproj|c:\\users\\denis\\source\\repos\\clouddb\\clouddb\\utils\\cookie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F88E0AD8-059B-481E-90FC-175EFF87E90E}|CloudDB\\CloudDB.csproj|solutionrelative:clouddb\\utils\\cookie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F88E0AD8-059B-481E-90FC-175EFF87E90E}|CloudDB\\CloudDB.csproj|c:\\users\\denis\\source\\repos\\clouddb\\clouddb\\model\\databasestructure.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F88E0AD8-059B-481E-90FC-175EFF87E90E}|CloudDB\\CloudDB.csproj|solutionrelative:clouddb\\model\\databasestructure.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F88E0AD8-059B-481E-90FC-175EFF87E90E}|CloudDB\\CloudDB.csproj|C:\\Users\\denis\\source\\repos\\CloudDB\\clouddb\\components\\pages\\authentication\\authorization.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F88E0AD8-059B-481E-90FC-175EFF87E90E}|CloudDB\\CloudDB.csproj|solutionrelative:clouddb\\components\\pages\\authentication\\authorization.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F88E0AD8-059B-481E-90FC-175EFF87E90E}|CloudDB\\CloudDB.csproj|C:\\Users\\denis\\source\\repos\\CloudDB\\clouddb\\components\\pages\\authentication\\registration.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F88E0AD8-059B-481E-90FC-175EFF87E90E}|CloudDB\\CloudDB.csproj|solutionrelative:clouddb\\components\\pages\\authentication\\registration.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F88E0AD8-059B-481E-90FC-175EFF87E90E}|CloudDB\\CloudDB.csproj|C:\\Users\\denis\\source\\repos\\CloudDB\\clouddb\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{F88E0AD8-059B-481E-90FC-175EFF87E90E}|CloudDB\\CloudDB.csproj|solutionrelative:clouddb\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 9,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ICookie.cs",
+              "DocumentMoniker": "C:\\Users\\denis\\source\\repos\\CloudDB\\CloudDB\\Utils\\ICookie.cs",
+              "RelativeDocumentMoniker": "CloudDB\\Utils\\ICookie.cs",
+              "ToolTip": "C:\\Users\\denis\\source\\repos\\CloudDB\\CloudDB\\Utils\\ICookie.cs",
+              "RelativeToolTip": "CloudDB\\Utils\\ICookie.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-12T10:10:37.593Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "FileUtil.cs",
+              "DocumentMoniker": "C:\\Users\\denis\\source\\repos\\CloudDB\\CloudDB\\Utils\\FileUtil.cs",
+              "RelativeDocumentMoniker": "CloudDB\\Utils\\FileUtil.cs",
+              "ToolTip": "C:\\Users\\denis\\source\\repos\\CloudDB\\CloudDB\\Utils\\FileUtil.cs",
+              "RelativeToolTip": "CloudDB\\Utils\\FileUtil.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-12T10:10:34.811Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "DatabaseStructure.cs",
+              "DocumentMoniker": "C:\\Users\\denis\\source\\repos\\CloudDB\\CloudDB\\Model\\DatabaseStructure.cs",
+              "RelativeDocumentMoniker": "CloudDB\\Model\\DatabaseStructure.cs",
+              "ToolTip": "C:\\Users\\denis\\source\\repos\\CloudDB\\CloudDB\\Model\\DatabaseStructure.cs",
+              "RelativeToolTip": "CloudDB\\Model\\DatabaseStructure.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-12T10:10:29.188Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Cookie.cs",
+              "DocumentMoniker": "C:\\Users\\denis\\source\\repos\\CloudDB\\CloudDB\\Utils\\Cookie.cs",
+              "RelativeDocumentMoniker": "CloudDB\\Utils\\Cookie.cs",
+              "ToolTip": "C:\\Users\\denis\\source\\repos\\CloudDB\\CloudDB\\Utils\\Cookie.cs",
+              "RelativeToolTip": "CloudDB\\Utils\\Cookie.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAYwDgAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-12T05:42:33.929Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\denis\\source\\repos\\CloudDB\\CloudDB\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "CloudDB\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\denis\\source\\repos\\CloudDB\\CloudDB\\Properties\\launchSettings.json",
+              "RelativeToolTip": "CloudDB\\Properties\\launchSettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAtAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-06-09T11:23:19.63Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Registration.razor",
+              "DocumentMoniker": "C:\\Users\\denis\\source\\repos\\CloudDB\\CloudDB\\Components\\Pages\\Authentication\\Registration.razor",
+              "RelativeDocumentMoniker": "CloudDB\\Components\\Pages\\Authentication\\Registration.razor",
+              "ToolTip": "C:\\Users\\denis\\source\\repos\\CloudDB\\CloudDB\\Components\\Pages\\Authentication\\Registration.razor",
+              "RelativeToolTip": "CloudDB\\Components\\Pages\\Authentication\\Registration.razor",
+              "ViewState": "AQIAABUAAAAAAAAAAAAAACoAAAA/AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-09T11:10:53.638Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Authorization.razor",
+              "DocumentMoniker": "C:\\Users\\denis\\source\\repos\\CloudDB\\CloudDB\\Components\\Pages\\Authentication\\Authorization.razor",
+              "RelativeDocumentMoniker": "CloudDB\\Components\\Pages\\Authentication\\Authorization.razor",
+              "ToolTip": "C:\\Users\\denis\\source\\repos\\CloudDB\\CloudDB\\Components\\Pages\\Authentication\\Authorization.razor",
+              "RelativeToolTip": "CloudDB\\Components\\Pages\\Authentication\\Authorization.razor",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAAA/AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-09T11:10:52.713Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ServerRequest.cs",
+              "DocumentMoniker": "C:\\Users\\denis\\source\\repos\\CloudDB\\CloudDB\\Utils\\ServerRequest.cs",
+              "RelativeDocumentMoniker": "CloudDB\\Utils\\ServerRequest.cs",
+              "ToolTip": "C:\\Users\\denis\\source\\repos\\CloudDB\\CloudDB\\Utils\\ServerRequest.cs",
+              "RelativeToolTip": "CloudDB\\Utils\\ServerRequest.cs",
+              "ViewState": "AQIAAGAAAAAAAAAAAAAYwJMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-30T16:44:10.225Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Home.razor",
+              "DocumentMoniker": "C:\\Users\\denis\\source\\repos\\CloudDB\\CloudDB\\Components\\Pages\\Home.razor",
+              "RelativeDocumentMoniker": "CloudDB\\Components\\Pages\\Home.razor",
+              "ToolTip": "C:\\Users\\denis\\source\\repos\\CloudDB\\CloudDB\\Components\\Pages\\Home.razor",
+              "RelativeToolTip": "CloudDB\\Components\\Pages\\Home.razor",
+              "ViewState": "AQIAAHABAAAAAAAAAAAQwKMBAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-30T16:40:17.754Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Workspace.razor",
+              "DocumentMoniker": "C:\\Users\\denis\\source\\repos\\CloudDB\\CloudDB\\Components\\Pages\\Workspace.razor",
+              "RelativeDocumentMoniker": "CloudDB\\Components\\Pages\\Workspace.razor",
+              "ToolTip": "C:\\Users\\denis\\source\\repos\\CloudDB\\CloudDB\\Components\\Pages\\Workspace.razor",
+              "RelativeToolTip": "CloudDB\\Components\\Pages\\Workspace.razor",
+              "ViewState": "AQIAAHcCAAAAAAAAAAAQwIoCAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-30T16:07:22.095Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

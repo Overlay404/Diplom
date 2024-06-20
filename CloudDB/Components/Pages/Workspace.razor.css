@@ -1,0 +1,28 @@
+﻿.buttonNavBar {
+    background: rgb(212, 204, 255);
+    transition-duration: 0.1s;
+    transition-property: background;
+}
+
+.buttonNavBar:hover {
+    background: rgb(177, 162, 255);
+}
+
+.navBarScroll {
+    max-height: var(--bs-scroll-height, 87.5vh);
+    overflow-y: auto;
+}
+
+.trashIcon {
+    height: 20px;
+    width: 20px;
+    color: rgb(200, 200, 200);
+    transition-duration: 0.3s;
+    transition-property: color, height, width;
+}
+
+.trashIcon:hover {
+    color: red;
+    height: 20.5px;
+    width: 20.5px;
+}

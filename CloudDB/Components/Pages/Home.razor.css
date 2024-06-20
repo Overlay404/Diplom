@@ -1,0 +1,61 @@
+﻿.trashIcon {
+    height: 20px;
+    width: 20px;
+    color: rgb(200, 200, 200);
+    transition-duration: 0.3s;
+    transition-property: color, height, width;
+}
+.trashIcon:hover 
+{
+    color: red;
+    height: 21px;
+    width: 21px;
+}
+
+.penIcon {
+    height: 20px;
+    width: 20px;
+    color: rgb(200, 200, 200);
+    transition-duration: 0.3s;
+    transition-property: color, height, width;
+}
+
+.penIcon:hover {
+    color: rgb(122, 90, 233);
+    height: 21px;
+    width: 21px;
+}
+
+.playIcon {
+    height: 22px;
+    width: 22px;
+    color: rgb(200, 200, 200);
+    transition-duration: 0.3s;
+    transition-property: color, height, width;
+}
+
+.playIcon:hover {
+    color: green;
+    height: 23px;
+    width: 23px;
+}
+
+.codeIcon {
+    height: 20px;
+    width: 20px;
+    color: rgb(200, 200, 200);
+    transition-duration: 0.3s;
+    transition-property: color, height, width;
+}
+
+.codeIcon:hover {
+    color: white;
+    height: 21px;
+    width: 21px;
+}
+
+.divbackground
+{
+    max-height: 100px;
+    background: rgba(17, 17, 17, 0.80)
+}

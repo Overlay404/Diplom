@@ -1,0 +1,113 @@
+﻿@page "/autorization"
+@rendermode InteractiveServer
+@using CloudDB.Http
+@inject ICookie cookie
+@inject NavigationManager NavigationManager
+
+<PageTitle>Authorization</PageTitle>
+
+<div class="container m-0" style="max-width:2000px;">
+    <div class="row">
+        <div class="col p-2" style="height: 100vh;">
+            <p class="h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">CloudDB</p>
+            <div class="align-items-center align-content-center" style="height: 70vh">
+                <img src="/Images/Auth2Background.png" class="p-5 w-100" style="min-width: 500px"/>
+            </div>
+        </div>
+        <div class="col rightCol" style="background: rgba(23, 0, 162, 0.67);">
+            <div class="align-items-center align-content-center" style="height: 96vh">
+                <div class="p-5">
+                    <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4 textAuth">Sign in</p>
+
+                    <form class="mx-1 mx-md-4">
+
+                        <div class="d-flex flex-row align-items-center mb-4">
+                            <div data-mdb-input-init class="form-outline flex-fill mb-0">
+                                <input type="text" placeholder="Login" class="form-control" @bind-value="@login" />
+                            </div>
+                        </div>
+
+                        <div class="d-flex flex-row align-items-center mb-4">
+                            <div data-mdb-input-init class="form-outline flex-fill mb-0">
+                                <input type="password" placeholder="Password" class="form-control" @bind-value="@password" />
+                            </div>
+                        </div>
+
+                        <p style="color:darkred">@infoMessage</p>
+
+                        <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                            <button type="button" class="btn btn-primary buttonAuth" @onclick="@pressAuthorizationButton">Authorization</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+            <div style="height:1vh" onclick="document.querySelector('.navbar-toggler').click()">
+                <NavLink class="nav-link" href="/registration" Match="NavLinkMatch.All">
+                    <p class="link float-end mt-auto mb-0 ms-auto">No account</p>
+                </NavLink>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@code {
+    private static string login;
+    private static string password;
+    private string infoMessage;
+    private HttpClient client = HttpClientExtension.GetClient();
+
+    private async void pressAuthorizationButton()
+    {
+        if (!validateFields(new List<string> { login.Trim(), password.Trim() }))
+        {
+            infoMessage = "Fields are not empty";
+            return;
+        }
+
+        try
+        {
+            JwtToken.SecureToken = await AuthorizationAccount();
+            infoMessage = JwtToken.SecureToken;
+            Navigate();
+        }
+        catch
+        {
+            infoMessage = "Error when entering login and password, your account was not found";
+        }
+
+        StateHasChanged();
+    }
+
+    private bool validateFields(List<string> fields)
+    {
+        foreach(var field in fields)
+        {
+            if (String.IsNullOrEmpty(field))
+            {
+                infoMessage = "Fields are not empty";
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private async Task<string> AuthorizationAccount()
+    {
+        dynamic user = new System.Dynamic.ExpandoObject();
+        user.login = login.Trim();
+        user.password = password.Trim();
+
+        return await HttpClientExtension.PostRequestAsync(client, BuildUrl.GetUrl("api/login"), user);
+    }
+
+    private async void Navigate()
+    {
+        if (!String.IsNullOrEmpty(JwtToken.SecureToken))
+        {
+            await cookie.SetValue("jwt_token", JwtToken.SecureToken.Replace('\"', ' ').Trim());
+            NavigationManager.NavigateTo("/", true);
+        }
+    }
+}

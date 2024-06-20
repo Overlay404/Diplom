@@ -1,0 +1,188 @@
+﻿@page "/registration"
+@rendermode InteractiveServer
+@inject ICookie cookie
+@inject NavigationManager NavigationManager
+@using System.Text.RegularExpressions
+@using CloudDB.Http
+
+<PageTitle>Registration</PageTitle>
+
+<div class="container m-0" style="max-width:2000px;">
+    <div class="row">
+        <div class="col p-2" style="height: 100vh;">
+            <p class="h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">CloudDB</p>
+            <div class="col d-flex align-items-center justify-content-center" style="height: 70vh">
+                <img src="/Images/AuthBackground.png" class="p-5 w-100" style="min-width: 500px"/>
+            </div>
+        </div>
+        <div class="col rightCol" style="background: rgba(23, 0, 162, 0.67);">
+            <div class="align-items-center align-content-center" style="height: 96vh">
+                <div class="p-5">
+                    <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4 textAuth">Sign up</p>
+
+                    <form class="mx-1 mx-md-4">
+
+                        <div class="d-flex flex-row align-items-center mb-4">
+                            <div data-mdb-input-init class="form-outline mb-0 input-group">
+                                <Tooltip id="addon1" Class="input-group-text" Title="Field must be filled in" Placement="TooltipPlacement.Left">
+                                    <i class="fa fa-info"/>
+                                </Tooltip>
+                                <input type="text" placeholder="Username" class="form-control" @bind-value="@username" aria-describedby="addon1"/>
+                            </div>
+                        </div>
+
+                        <div class="d-flex flex-row align-items-center mb-4">
+                            <div data-mdb-input-init class="form-outline input-group mb-0">
+                                <Tooltip id="addon2" Class="input-group-text" Title="Login must be unique" Placement="TooltipPlacement.Left">
+                                    <i class="fa fa-info" />
+                                </Tooltip>
+                                <input type="text" placeholder="Login" class="form-control" @bind-value="@login" aria-describedby="addon2" />
+                            </div>
+                        </div>
+
+                        <div class="d-flex flex-row align-items-center mb-4">
+                            <div data-mdb-input-init class="form-outline input-group mb-0">
+                                <Tooltip id="addon3" Class="input-group-text" Title="@toolTipPasswordText" Placement="TooltipPlacement.Left">
+                                    <i class="fa fa-info" />
+                                </Tooltip>
+                                <input type="password" placeholder="Password" class="form-control" @bind-value="@password" aria-describedby="addon3" />
+                            </div>
+                        </div>
+
+                        <div class="d-flex flex-row align-items-center mb-4">
+                            <div class="form-outline input-group mb-0">
+                                <Tooltip id="addon4" Class="input-group-text" Title="@toolTipPasswordText" Placement="TooltipPlacement.Left">
+                                    <i class="fa fa-info" />
+                                </Tooltip>
+                                <input type="password" placeholder="Repeat your password" class="form-control" @bind-value="@passwordRepetitive" aria-describedby="addon4" />
+                            </div>
+                        </div>
+
+                        <p style="color:darkred">@infoMessage</p>
+
+                        <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                            <button type="button" class="btn btn-primary buttonAuth" @onclick="@PressRegistrationButton">Registration</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+            <div style="height:1vh" onclick="document.querySelector('.navbar-toggler').click()">
+                <NavLink class="nav-link" href="/autorization" Match="NavLinkMatch.All">
+                    <p class="link float-end mt-auto mb-0 ms-auto">Have an account</p>
+                </NavLink>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@code {
+    private static string username;
+    private static string login;
+    private static string password;
+    private static string passwordRepetitive;
+    private string toolTipPasswordText = "The password must contain: capital letters, lower case, numbers and special characters, must match the second password field";
+    private string infoMessage = "";
+    private HttpClient client = HttpClientExtension.GetClient();
+
+    private async void PressRegistrationButton()
+    {
+        infoMessage = "";
+
+        if (!validateFields(new List<string> { username.Trim(), login.Trim(), password.Trim(), passwordRepetitive.Trim() }) ||
+        !validatePassword(password.Trim()) ||
+        !compairePassword(password.Trim(), passwordRepetitive.Trim()))
+        {
+            return;
+        }
+
+        try
+        {
+            JwtToken.SecureToken = await RegistrationAccount();
+            Navigate();
+        }
+        catch(Exception ex)
+        {
+            infoMessage = $"Opps... {ex.Message}";
+        }
+
+        StateHasChanged();
+    }
+
+    private bool validateFields(List<string> fields)
+    {
+        foreach(var field in fields)
+        {
+            if (String.IsNullOrEmpty(field))
+            {
+                infoMessage = "Fields are not empty";
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private bool validatePassword(string pass)
+    {
+        Regex regCap = new Regex("[А-ЯA-Z]");
+        Regex regLow = new Regex("[а-яa-z]");
+        Regex regDig = new Regex("[\\d]");
+        Regex regSym = new Regex("[^A-zА-я\\d\\s]");
+
+        List<bool> checkRules = new List<bool>
+        {
+            regCap.IsMatch(pass),
+            regLow.IsMatch(pass),
+            regDig.IsMatch(pass),
+            regSym.IsMatch(pass)
+        };
+
+        int count = checkRules.Where(cr => cr).Count();
+
+        if(count < 3 || pass.Length < 6)
+        {
+            infoMessage = "Your password is simple, add special characters, use numbers and capital letters, password must be 6 characters long";
+            return false;
+        }
+
+        return true;
+    }
+
+    private bool compairePassword(string password, string passwordRepetitive)
+    {
+        if (password.Trim().Equals(passwordRepetitive.Trim())){
+            return true;
+        }
+        infoMessage = "Password mismatch";
+        return false;
+    }
+
+    private async Task<string> RegistrationAccount()
+    {
+        bool isLoginUser = Convert.ToBoolean(await HttpClientExtension.GetRequestAsync(client, BuildUrl.GetUrl($"api/check_login?login={login}")));
+
+        if (isLoginUser)
+        {
+            infoMessage = "Login has been used";
+            return null;
+        }
+
+        dynamic user = new System.Dynamic.ExpandoObject();
+        user.username = username.Trim();
+        user.login = login.Trim();
+        user.password = password.Trim();
+
+        return await HttpClientExtension.PostRequestAsync(client, BuildUrl.GetUrl("api/register"), user);
+    }
+
+    private async void Navigate()
+    {
+        if (!String.IsNullOrEmpty(JwtToken.SecureToken))
+        {
+            await cookie.SetValue("jwt_token", JwtToken.SecureToken.Replace('\"', ' ').Trim());
+            NavigationManager.NavigateTo("/", true);
+        }
+    }
+}

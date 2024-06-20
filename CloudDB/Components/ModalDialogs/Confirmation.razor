@@ -1,0 +1,59 @@
+﻿<div class="modal fade show" style="display:block; background:rgba(0, 0, 0, 0.5)">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">@Title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" @onclick="Close"></button>
+            </div>
+            <div class="modal-body">
+                <h4>@Text</h4>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" @onclick="Close">Close</button>
+                @if (IsModalWithParameter)
+                {
+                    <button type="button" class="btn btn-primary" @onclick="DoneWithParameter">@ButtonText</button>
+                }
+                else
+                {
+                    <button type="button" class="btn btn-primary" @onclick="Done">@ButtonText</button>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@code {
+    private object? ValueObject;
+    [Parameter]
+    public string? Title { get; set; }
+    [Parameter]
+    public string? Text { get; set; }
+    [Parameter]
+    public string? ButtonText { get; set; }
+    [Parameter]
+    public bool IsModalWithParameter { get; set; }
+    [Parameter]
+    public EventCallback<string> OnCloseCallback { get; set; }
+    [Parameter]
+    public EventCallback<string> OnDoneCallback { get; set; }
+    [Parameter]
+    public EventCallback<object> OnDoneWithParameterCallback { get; set; }
+
+
+    public async void Done()
+    {
+        await InvokeAsync(() => OnDoneCallback.InvokeAsync());
+    }
+
+    public async void DoneWithParameter()
+    {
+        await InvokeAsync(() => OnDoneWithParameterCallback.InvokeAsync(ValueObject));
+    }
+
+    public async void Close()
+    {
+        await InvokeAsync(() => OnCloseCallback.InvokeAsync());
+    }
+}

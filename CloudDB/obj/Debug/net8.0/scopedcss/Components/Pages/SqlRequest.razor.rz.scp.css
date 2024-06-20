@@ -1,0 +1,35 @@
+.playIcon[b-2f9qs8soru] {
+    color: green;
+    width: 40px;
+    height: 40px;
+    transition-duration: 0.3s;
+    transition-property: color;
+}
+
+.playIcon:hover[b-2f9qs8soru]{
+    color: greenyellow;
+}
+
+.downloadIcon[b-2f9qs8soru] {
+    width: 35px;
+    height: 35px;
+    color: rgb(200, 200, 200);
+    transition-duration: 0.3s;
+    transition-property: color;
+}
+
+.downloadIcon:hover[b-2f9qs8soru] {
+    color: white;
+}
+
+.broomIcon[b-2f9qs8soru] {
+    width: 35px;
+    height: 35px;
+    color: rgb(200, 200, 200);
+    transition-duration: 0.3s;
+    transition-property: color;
+}
+
+.broomIcon:hover[b-2f9qs8soru] {
+    color: white;
+}

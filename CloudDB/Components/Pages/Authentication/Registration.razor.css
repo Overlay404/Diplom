@@ -1,0 +1,16 @@
+﻿.textAuth {
+    color: white;
+}
+
+.rightCol {
+    height: 100vh;
+}
+
+.link {
+    opacity: 0.6;
+    color: white;
+    text-decoration: none;
+}
+.link:hover{
+    opacity: 1;
+}

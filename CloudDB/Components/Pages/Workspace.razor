@@ -1,0 +1,683 @@
+﻿@page "/workspace"
+@page "/workspace/{tokenDatabase}"
+@using CloudDB.Http
+@using CloudDB.Model
+@using System.Dynamic
+@using Microsoft.AspNetCore.Components.Web
+@rendermode InteractiveServer
+@inject NavigationManager NavigationManager
+
+
+@if (@modalConfirmationEditRow)
+{
+    <CloudDB.Components.ModalDialogs.Confirmation Title="Close editing" Text="Undo changes?" ButtonText="Yes" IsModalWithParameter="true" OnDoneWithParameterCallback="() => OnSureModal(rowDataEditing)" OnCloseCallback="OnCloseModal" />
+}
+
+@if (@modalNotificationEditRow)
+{
+    <CloudDB.Components.ModalDialogs.Notification Title="Notification" Text="@infoMessage" OnCloseCallback="OnCloseModal" />
+}
+@if (@modalCreateTable)
+{
+    <CloudDB.Components.ModalDialogs.Create Title="Choose a name for the table" Placeholder="Name table" ButtonText="Create" OnDoneCallback="OnCreateTableModal" OnCloseCallback="OnCloseModal" />
+}
+@if (!String.IsNullOrEmpty(tokenDatabase))
+{
+    <div style="height:100%">
+        <div style="height:5%">
+            <nav class="navbar navbar-dark bg-dark">
+                <div class="ps-3 p-1" @onclick="ReturnInMainMenu">
+                    <i class="fa fa-arrow-left" style="color: white; height: 25px; width: 25px" />
+                </div>
+            </nav>
+        </div>
+        <div class="container-fluid" style="height:95%">
+            <div class="row" style="height: 100%">
+                <div class="col-2" style="background: rgb(230,230,230)">
+                    <div class="input-group my-3">
+                        <input type="search" class="form-control" placeholder="Search table" @bind-value="@searchText" @onkeyup="searchTextChanged" />
+                    </div>
+                    <div class="navBarScroll">
+                        @if (tables != null && tables.Count != 0)
+                        {
+                            @foreach (var table in tables)
+                            {
+                                <div class="w-100 buttonNavBar d-flex flex-row" @onmouseover="() => tableMouseOver(table)" @onmouseleave="() => tableMouseLeave(table)">
+                                    <div class="w-75 m-3" @onclick="() => selectTable(table.name)">
+                                        <p class="m-0 p-0">@table.name</p>
+                                    </div>
+                                    <div class="ms-auto m-3" style="visibility:@table.visibleTableTrashIcon" @onclick="() => deleteTable(table.name)">
+                                        <i class="fa fa-trash trashIcon" />
+                                    </div>
+                                </div>
+                            }
+                        }
+                            <div>
+                                <button class="btn btn-primary w-100" @onclick="createTableClick">
+                                    <p class="m-0">Add new table</p>
+                                </button>
+                            </div>
+                    </div>
+                </div>
+                <div class="col-10 p-5" style="background: rgb(200, 200, 200)">
+                    @if (!isCreateTable)
+                    {
+                        <table class="table table-borderless" style="background:rgb(230,230,230);">
+                            <thead>
+                                <tr>
+                                    @foreach (var info in namesColumn)
+                                    {
+                                        <th scope="col">
+                                            @info.name
+                                            @if (info.pk == 1)
+                                            {
+                                                <i class="fa fa-key ms-2" style="color:yellowgreen" />
+                                            }
+                                        </th>
+                                    }
+                                    @if(namesColumn.Count > 0)
+                                    {
+                                        <th scope="col">
+                                        </th>
+                                    }
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in dataTable)
+                                {
+                                    <tr>
+                                        @if (item.isEditing)
+                                        {
+                                            @foreach (var keyValuePair in item.Dict)
+                                            {
+                                                @if (item.Dict.ElementAt(0).Equals(keyValuePair))
+                                                {
+                                                    <th scope="row">
+                                                        <input type="text" class="form-control" placeholder="Empty" value="@keyValuePair.Value" @onchange="@((ChangeEventArgs e) => changeValueInput(e, keyValuePair.Key))" />
+                                                    </th>
+                                                }
+                                                else
+                                                {
+                                                    <td>
+                                                        <input type="text" class="form-control" placeholder="Empty" value="@keyValuePair.Value" @onchange="@((ChangeEventArgs e) => changeValueInput(e, keyValuePair.Key))" />
+                                                    </td>
+                                                }
+                                            }
+                                            <td class="text-end">
+                                                <button type="button" class="btn btn-light" @onclick="() => closeEditRowClick(item)">
+                                                    <i class="fa fa-window-close" />
+                                                </button>
+                                                <button type="button" class="btn btn-light" @onclick="() => acceptEditRowClick(item)">
+                                                    <i class="fa fa-check-square" />
+                                                </button>
+                                            </td>
+                                        }
+                                        else
+                                        {
+                                            @for (int j = 0; j < item.Dict.Count; j++)
+                                            {
+                                                @if (j == 0)
+                                                {
+                                                    <th scope="row">
+                                                        @item.Dict.ElementAt(j).Value
+                                                    </th>
+                                                }
+                                                else
+                                                {
+                                                    <td>
+                                                        @item.Dict.ElementAt(j).Value
+                                                    </td>
+                                                }
+                                            }
+                                            <td class="text-end">
+                                                <button type="button" class="btn btn-light" @onclick="() => editRowClick(item)">
+                                                    <i class="fa fa-pen" />
+                                                </button>
+                                                <button type="button" class="btn btn-light" @onclick="() => deleteRowClick(item)">
+                                                    <i class="fa fa-trash" />
+                                                </button>
+                                            </td>
+                                        }
+                                    </tr>
+                                }
+                                @if (!string.IsNullOrEmpty(selectedTable))
+                                {
+                                    <tr>
+                                        <td colspan="100">
+                                            <button class="btn btn-primary w-100" @onclick="() => addNewRow(false)">
+                                                <p class="m-0">Add new row</p>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    }
+                    else
+                    {
+                        <table class="table table-borderless" style="background:rgb(230,230,230); margin-top:25px">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Type field</th>
+                                    <th scope="col">Primary key</th>
+                                    <th scope="col">Foregraund key</th>
+                                    <th scope="col">Name table</th>
+                                    <th scope="col">Field</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in tableStructures)
+                                {
+                                    <tr>
+                                        <td>
+                                            <input type="text" class="form-control" placeholder="Empty" @bind="@item.name" />
+                                        </td>
+
+                                        <td>
+                                            <InputSelect class="form-select" @bind-Value="item.type_field">
+                                                @foreach (var type in Enum.GetNames(typeof(TableStructure.Type)))
+                                                {
+                                                    <option value="@type">@type</option>
+                                                }
+                                            </InputSelect>
+                                        </td>
+
+                                        <td>
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" id="isPrimaryKey" @bind="@item.is_primary_key">
+                                                <label class="form-check-label" for="isPrimaryKey">
+                                                    Click if is a primary key
+                                                </label>
+                                            </div>
+                                        </td>
+
+                                        <td>
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" id="isForegraundKey" @bind="@item.is_foregraund_key">
+                                                <label class="form-check-label" for="isForegraundKey">
+                                                    Click if is a foregraund key
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control" readonly="@(!item.is_foregraund_key)" @bind="item.references.table" />
+                                        </td>
+
+                                        <td>
+                                            <input type="text" class="form-control" readonly="@(!item.is_foregraund_key)" @bind="item.references.field" />
+                                        </td>
+
+                                        <td>
+                                            <div class="ms-auto" @onclick="() => deleteItemInListCreateTable(item)">
+                                                <i class="fa fa-trash trashIcon" />
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }
+                                <tr>
+                                    <td colspan="100">
+                                        <button class="btn btn-primary w-100" @onclick="() => addNewRow(true)">
+                                            <p class="m-0">Add new row</p>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <button class="btn btn-primary position-absolute mx-5 my-3" style="background:rgb(26, 185, 132); right: 0; top: 50px;" @onclick="confirmTableStructureClick">
+                            <p class="m-0">Create table</p>
+                        </button>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <h1>
+        Database token not specified
+    </h1>
+}
+
+@code {
+
+    /// <summary>
+    /// Переменная определятся при переходе по ссылке со специальным значением в виде токена базы данных
+    /// </summary>
+    [Parameter]
+    public string? tokenDatabase { get; set; }
+
+    /// <summary>
+    /// Объявление переменных для отображения модальных окон с определёнными значениями
+    /// </summary>
+    private string infoMessage = "";
+    private bool modalConfirmationEditRow;
+    private bool modalNotificationEditRow;
+    private bool modalCreateTable;
+
+    /// <summary>
+    /// Переменная для поиска таблиц
+    /// </summary>
+    private string? searchText;
+
+    /// <summary>
+    /// Отображаемые таблицы при поиске
+    /// </summary>
+    private List<NameTable> tables = new List<NameTable>();
+
+    /// <summary>
+    /// Имена таблиц полученные от сервера
+    /// </summary>
+    private List<NameTable> currentTables = new();
+
+    /// <summary>
+    /// Данные для заполнения таблицы
+    /// </summary>
+    private List<RowDataTable> dataTable = new();
+
+    /// <summary>
+    /// Названия колонок в списке
+    /// </summary>
+    private List<InfoTable> namesColumn = new();
+
+    /// <summary>
+    /// Хранение выбранной таблицы
+    /// </summary>
+    private string selectedTable = "";
+
+    /// <summary>
+    /// Строка, которую именяет пользователь
+    /// </summary>
+    private RowDataTable? rowDataEditing;
+
+    /// <summary>
+    /// Данные в виде ключ-значение с изменёнными значениями пользователем
+    /// </summary>
+    private Dictionary<string, object> editingDict = new Dictionary<string, object>();
+
+    /// <summary>
+    /// Если создание таблицы true, в остальных случаях false
+    /// </summary>
+    private bool isCreateTable;
+
+    private bool isCreatingRow;
+
+    private List<TableStructure> tableStructures = new();
+
+    /// <summary>
+    /// Метод вызывается при загрузке страницы, получает список таблиц в базе данных
+    /// </summary>
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            if (String.IsNullOrEmpty(Http.JwtToken.SecureToken))
+            {
+                //добавить экран загрузки
+                NavigationManager.NavigateTo("autorization", true);
+            }
+
+            try
+            {
+                if (string.IsNullOrEmpty(tokenDatabase))
+                {
+                    throw new Exception("Database token not specified");
+                }
+                tables = await ServerRequest.GetTables(tokenDatabase);
+                currentTables = tables;
+            }
+            catch (Exception ex)
+            {
+                infoMessage = ex.Message;
+                modalNotificationEditRow = true;
+            }
+        }
+        StateHasChanged();
+    }
+
+    /// <summary>
+    /// Метод для определения структуры таблицы и получении информации о её столбцах
+    /// </summary>
+    /// <param name="name">принимает значение имени таблицы</param>
+    private async void selectTable(string name)
+    {
+        List<Dictionary<string, object>>? listDictFromRequest = new();
+        try
+        {
+            if (string.IsNullOrEmpty(tokenDatabase))
+            {
+                throw new Exception("Database token not specified");
+            }
+            isCreateTable = false;
+            namesColumn = await ServerRequest.GetInfoTable(name, tokenDatabase);
+            listDictFromRequest = await ServerRequest.GetTable(name, tokenDatabase);
+            selectedTable = name;
+        }
+        catch (Exception ex)
+        {
+            infoMessage = ex.Message;
+            modalNotificationEditRow = true;
+        }
+
+        dataTable.Clear();
+
+        listDictFromRequest?.ForEach(res => dataTable.Add(new RowDataTable { Dict = res }));
+    }
+
+    /// <summary>
+    /// Метод вызывающийся при нажатии на иконку урны, в списке таблиц
+    /// </summary>
+    /// <param name="name">Имя таблицы</param>
+    private async void deleteTable(string name)
+    {
+        try
+        {
+            NameTable? tableForDelete = tables.FirstOrDefault(nc => nc.name == name);
+            if (string.IsNullOrEmpty(tokenDatabase))
+            {
+                throw new Exception("Database token not specified");
+            }
+            if(tableForDelete is null)
+            {
+                return;
+            }
+            tables.Remove(tableForDelete);
+            await ServerRequest.DeleteTable(name, tokenDatabase);
+        }
+        catch (Exception ex)
+        {
+            infoMessage = ex.Message;
+            modalNotificationEditRow = true;
+        }
+        StateHasChanged();
+    }
+
+    /// <summary>
+    /// Происходит при наведении пользователя на элемент списка с именами таблиц
+    /// </summary>
+    /// <param name="table">принимает обёрнутое имя таблицы в класс для манипуляцый со списом</param>
+    private void tableMouseOver(NameTable table) => table.visibleTableTrashIcon = "visible";
+
+    /// <summary>
+    /// Происходит при потере фокуса на элементе списка с именами таблиц
+    /// </summary>
+    /// <param name="table">принимает обёрнутое имя таблицы в класс для манипуляцый со списом</param>
+    private void tableMouseLeave(NameTable table) => table.visibleTableTrashIcon = "collapse";
+
+    /// <summary>
+    /// Получает значение введённое пользователем и присваивает значение переменной
+    /// </summary>
+    private void searchTextChanged()
+    {
+
+        if (searchText == null || String.IsNullOrEmpty(searchText))
+        {
+            tables = currentTables;
+            return;
+        }
+
+        tables = currentTables.Where(t => t.name.StartsWith(searchText)).ToList();
+    }
+
+    /// <summary>
+    /// Вызывается при нажатии пользователя на принять изменения принимает объект и изменяет его значение на редактируемое
+    /// </summary>
+    /// <param name="rowDataTable">принимает неизменяемый редактируемый объект и создает копию на основе его ключа</param>
+    private void editRowClick(RowDataTable rowDataTable)
+    {
+        if (dataTable.FirstOrDefault(dt => dt.isEditing == true) != null)
+        {
+            rowDataEditing = rowDataTable;
+            modalConfirmationEditRow = true;
+        }
+        else
+        {
+            rowDataTable.isEditing = true;
+        }
+    }
+
+    /// <summary>
+    /// Вызывается при нажатии на иконку мусорки
+    /// </summary>
+    /// <param name="rowDataTable"></param>
+    private async void deleteRowClick(RowDataTable rowDataTable)
+    {
+        var infoColumn = namesColumn?.FirstOrDefault(nc => nc.pk == 1);
+        object? objectRowData;
+        int index;
+
+        if (infoColumn is null || !rowDataTable.Dict.TryGetValue(infoColumn.name, out objectRowData) ||
+        !int.TryParse(objectRowData.ToString(), out index))
+        {
+            return;
+        }
+        try
+        {
+            if (string.IsNullOrEmpty(tokenDatabase))
+            {
+                throw new Exception("Database token not specified");
+            }
+
+            await ServerRequest.DeleteRow(selectedTable, index, tokenDatabase);
+            selectTable(selectedTable);
+        }
+        catch (Exception ex)
+        {
+            infoMessage = ex.Message;
+            modalNotificationEditRow = true;
+        }
+    }
+
+    /// <summary>
+    /// Вызывается при нажатии пользователя на не сохранять изменения отменяет редактирование элемента
+    /// </summary>
+    /// <param name="rowDataTable">Изменяет статус элемента</param>
+    private void closeEditRowClick(RowDataTable rowDataTable)
+    {
+        rowDataTable.isEditing = false;
+        if (isCreatingRow)
+        {
+            deleteRowClick(rowDataTable);
+        }
+    }
+
+    /// <summary>
+    /// Вызывается при нажатии пользователя на редактирование элемента
+    /// </summary>
+    /// <param name="rowDataTable">Принимает данные с сервера обёрнутые в класс</param>
+    private async void acceptEditRowClick(RowDataTable rowDataTable)
+    {
+        isCreatingRow = false;
+        rowDataTable.isEditing = false;
+
+        if (string.IsNullOrEmpty(selectedTable) || rowDataTable.Dict == null)
+            return;
+
+        try
+        {
+            if (string.IsNullOrEmpty(tokenDatabase))
+            {
+                throw new Exception("Database token not specified");
+            }
+            await ServerRequest.UpdateTable(selectedTable, editingDict, rowDataTable.Dict, tokenDatabase);
+            selectTable(selectedTable);
+        }
+        catch (Exception ex)
+        {
+            infoMessage = ex.Message;
+            modalNotificationEditRow = true;
+        }
+    }
+
+    /// <summary>
+    /// Вызывается если пользователь решит не сохранять изменённые им данные
+    /// </summary>
+    /// <param name="rowDataTable">Принимает данные с сервера обёрнутые в класс</param>
+    private void OnSureModal(RowDataTable? rowDataTable)
+    {
+        if (rowDataEditing is null)
+        {
+            modalConfirmationEditRow = false;
+            return;
+        }
+
+        if (rowDataTable is null)
+            return;
+
+        dataTable.ForEach(dt => dt.isEditing = false);
+        rowDataTable.isEditing = true;
+        modalConfirmationEditRow = false;
+    }
+
+    /// <summary>
+    /// Вызывается при закрытии модального окна
+    /// </summary>
+    private void OnCloseModal()
+    {
+        modalConfirmationEditRow = false;
+        modalNotificationEditRow = false;
+        modalCreateTable = false;
+    }
+
+    /// <summary>
+    /// Принимает название таблицы и отправляет запрос на сервер
+    /// </summary>
+    /// <param name="tableName"></param>
+    private async void OnCreateTableModal(string tableName)
+    {
+        if (tableName == null)
+        {
+            return;
+        }
+        try
+        {
+            if (string.IsNullOrEmpty(tokenDatabase))
+            {
+                throw new Exception("Database token not specified");
+            }
+            modalCreateTable = false;
+            await ServerRequest.CreateTable(tableName, tableStructures, tokenDatabase);
+            tables.Add(new NameTable { name = tableName });
+        }
+        catch (Exception ex)
+        { 
+            infoMessage = ex.Message;
+            modalNotificationEditRow = true;
+        }
+    }
+
+    /// <summary>
+    /// Вызывается при редактировании пользователем отдельного элемента словаря, и изменённые значения записывает в новый словарь
+    /// </summary>
+    /// <param name="e">переменная для получения введённого значения</param>
+    /// <param name="key">ключ для создания нового словаря</param>
+    private void changeValueInput(ChangeEventArgs e, string key)
+    {
+        if (e.Value is null)
+            return;
+
+        editingDict[key] = e.Value;
+    }
+
+    /// <summary>
+    /// Функция перехода к домашней странице
+    /// </summary>
+    private void ReturnInMainMenu() => NavigationManager.NavigateTo("/", true);
+
+    /// <summary>
+    /// Добавление строки в таблицу
+    /// </summary>
+    /// <param name="isCreateRow">Отвечает за место добавления строки, если true то при создании таблицы, в ином случае при добавлении данных</param>
+    private async void addNewRow(bool isCreateRow)
+    {
+        isCreatingRow = true;
+        if (isCreateRow)
+        {
+            tableStructures.Add(new TableStructure());
+            return;
+        }
+        if (namesColumn == null)
+            return;
+
+        dataTable.ForEach(dt => dt.isEditing = false);
+
+        var dict = new Dictionary<string, object>();
+
+        foreach (var infoItem in namesColumn)
+        {
+            if (infoItem.pk == 1)
+            {
+                dict.Add(infoItem.name, indexForNewItem(infoItem.name));
+                continue;
+            }
+            dict.Add(infoItem.name, "");
+        }
+
+        dataTable.Add(new RowDataTable { isEditing = true, Dict = dict });
+
+        try
+        {
+            if (string.IsNullOrEmpty(tokenDatabase))
+            {
+                throw new Exception("Database token not specified");
+            }
+            await ServerRequest.AddRowInTable(selectedTable, dict, tokenDatabase);
+        }
+        catch (Exception ex)
+        {
+            infoMessage = ex.Message;
+            modalNotificationEditRow = true;
+        }
+    }
+
+    /// <summary>
+    /// Получение индекса для новой строки
+    /// </summary>
+    /// <param name="name"></param>
+    /// <returns></returns>
+    private int indexForNewItem(string name)
+    {
+        var lastItem = dataTable.LastOrDefault();
+        object? result;
+        int returnedValue;
+
+        if (lastItem is not null && lastItem.Dict is not null && lastItem.Dict.Count > 0)
+        {
+            lastItem.Dict.TryGetValue(name, out result);
+        }
+        else
+        {
+            result = 0;
+        }
+        int.TryParse(result?.ToString(), out returnedValue);
+        return returnedValue + 1;
+    }
+
+    /// <summary>
+    /// Нажатие на кнопку создать таблицу
+    /// </summary>
+    private void createTableClick()
+    {
+        isCreateTable = true;
+    }
+
+    /// <summary>
+    /// Удаление элемента из списка будущей таблицы
+    /// </summary>
+    /// <param name="tableStructure"></param>
+    private void deleteItemInListCreateTable(TableStructure tableStructure)
+    {
+        tableStructures.Remove(tableStructure);
+    }
+
+    /// <summary>
+    /// Нажатие на создание самой таблицы с сформированной структурой
+    /// </summary>
+    private void confirmTableStructureClick()
+    {
+        modalCreateTable = true;
+    }
+}

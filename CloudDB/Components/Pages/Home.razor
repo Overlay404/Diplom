@@ -1,0 +1,419 @@
+﻿@page "/"
+@using CloudDB.Http
+@using CloudDB.Model
+@using System.Collections.ObjectModel
+@rendermode InteractiveServer
+@inject ICookie cookie
+@inject NavigationManager NavigationManager
+
+
+
+<PageTitle>Home</PageTitle>
+
+@if(@modalCreateDatabaseShow)
+{
+    <CloudDB.Components.ModalDialogs.Create Title="@titleModal" Placeholder="@placeholderModal" ButtonText="@createButtonText" OnDoneCallback="OnCreateModal" OnCloseCallback="OnCloseModal"/>
+}
+
+@if(@modalRenameUser)
+{
+    <CloudDB.Components.ModalDialogs.Create Title="Type new username" Placeholder="Username" ButtonText="Rename" OnDoneCallback="OnRenameUsernameModal" OnCloseCallback="OnCloseModal" />
+}
+
+@if(@modalRenameDatabaseShow)
+{
+    <CloudDB.Components.ModalDialogs.Create Title="@titleModalRename" Placeholder="@placeholderModal" ButtonText="@renameButtonText" OnDoneCallback="OnRenameModal" OnCloseCallback="OnCloseModal"/>
+}
+
+@if (@modalDeleteDatabaseShow)
+{
+    <CloudDB.Components.ModalDialogs.Confirmation Title="@titleModalDelete" Text="@textModal" ButtonText="@deleteButtonText" OnDoneCallback="OnDeleteModal" OnCloseCallback="OnCloseModal"/>
+}
+
+@if (@modalNotificationEditRow)
+{
+    <CloudDB.Components.ModalDialogs.Notification Title="Notification" Text="@infoMessage" OnCloseCallback="OnCloseModal"/>
+}
+
+<div class="w-100 h-auto" style="background-image: linear-gradient(180deg, rgba(23, 0, 162, 0.7) 0%, rgba(70, 30, 170, 0.67) 70%); color:white; min-height:100%">
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="ms-auto pe-3" @onclick="changeVisible">
+            <img class="rounded-circle" src="Images/BackgrounMain.png" width="50" height="50"/>
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#ffffff" height="15" width="10" version="1.1" id="Layer_1" viewBox="0 0 330 330" xml:space="preserve">
+                <path id="XMLID_225_" d="M325.607,79.393c-5.857-5.857-15.355-5.858-21.213,0.001l-139.39,139.393L25.607,79.393  c-5.857-5.857-15.355-5.858-21.213,0.001c-5.858,5.858-5.858,15.355,0,21.213l150.004,150c2.813,2.813,6.628,4.393,10.606,4.393  s7.794-1.581,10.606-4.394l149.996-150C331.465,94.749,331.465,85.251,325.607,79.393z" />
+            </svg>
+        </div>
+    </nav>
+    <div class="ms-auto bg-dark justify-content-center text-center" style="visibility: @visibleBlockAccount; width:200px;">
+        <h3>@username</h3>
+        <button type="button" class="btn btn-dark" style="width:200px" @onclick="() => modalRenameUser = true">Change username</button>
+        <button type="button" class="btn btn-dark" style="width:200px" @onclick="logOut">Log out</button>
+    </div>
+
+    <div class="p-5">
+        <h1>Welcome to CloudDB</h1>
+        <h4>CloudDB is a platform for creating and using cloud databases</h4>
+    </div>
+    <button type="button" class="btn btn-dark btn-lg p-3 createDatabase" style="width:300px; margin-left: 5vh;" @onclick="createModal">Create new database</button>
+
+    @if (visibleSqlQueryEditor)
+    {
+        <SqlRequest tokenDatabase="@tokenSelectedDatabase" />
+    }
+
+    <div class="carousel-dark d-flex justify-content-center p-5 flex-wrap m-3 position-absolute bottom-0" style="border: dashed rgba(10, 30, 160, 0.67); width:98%;">
+        @if (@countDatabase == 0)
+        {
+            <h1 class="m-5">No databases</h1>
+        }
+        else if(databases != null)
+        {
+            @foreach(var database in databases)
+            {
+                <div class="p-4 rounded-2 m-2 divbackground">
+                    <div class="d-flex flex-row">
+                        <div @onclick="() => startClick(database)">
+                            <button class=" fa fa-play playIcon"></button>
+                        </div>
+                        <div @onclick="() => renameClick(database)">
+                            <button class="fa fa-pen penIcon ms-2" />
+                        </div>
+                        <div @onclick="() => deleteClick(database)">
+                            <button class="fa fa-trash trashIcon ms-2" />
+                        </div>
+                        <div @onclick="() => ShowSqlQueryPage(database)">
+                            <button class="fa fa-code codeIcon ms-2"/>
+                        </div>
+                    </div>
+                    <h4>@database.name</h4>
+                </div>
+            }
+        }
+    </div>
+</div>
+
+@code{
+
+    /// <summary>
+    /// Объявление переменных для отображения модальных окон с определёнными значениями
+    /// </summary>
+    private bool modalCreateDatabaseShow;
+    private bool modalRenameDatabaseShow;
+    private bool modalRenameUser;
+    private bool modalDeleteDatabaseShow;
+    private bool modalNotificationEditRow;
+    private string titleModal = "Create new database";
+    private string titleModalRename = "Rename database";
+    private string titleModalDelete = "Delete database";
+    private string placeholderModal = "Name database";
+    private string textModal = "Are you sure?";
+    private string createButtonText = "Create";
+    private string renameButtonText = "Rename";
+    private string deleteButtonText = "Delete";
+    private string infoMessage = "";
+    private string username = "";
+
+    /// <summary>
+    /// Переменная для скрытия кнопок взаимодействия с аккаунтом
+    /// </summary>
+    private string visibleBlockAccount = "collapse";
+
+    /// <summary>
+    /// Переменная для скрытия окна редактивания базы данных
+    /// </summary>
+    private bool visibleSqlQueryEditor;
+
+    /// <summary>
+    /// Переменная для определения смены объкта
+    /// </summary>
+    private DatabaseStructure? oldValueDatabase;
+
+    /// <summary>
+    /// Переменная для работы с sql
+    /// </summary>
+    private string tokenSelectedDatabase = "";
+
+    /// <summary>
+    /// Вспомогательные переменные для работы со структурой баз данных
+    /// </summary>
+    private DatabaseStructure? databaseSelected;
+    private static ObservableCollection<DatabaseStructure>? databases = new ObservableCollection<DatabaseStructure>();
+    private static int countDatabase
+    {
+        get
+        {
+            if (databases != null)
+            {
+                return databases.Count;
+            }
+            return 0;
+        }
+    }
+
+    /// <summary>
+    /// Переопредлённый метод, вызывающийся после рендеринга страницы
+    /// </summary>
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            Http.JwtToken.SecureToken = await CheckCookie();
+
+            if (Navigate("/autorization"))
+            {
+                StateHasChanged();
+                return;
+            }
+
+            try
+            {   
+                databases = await ServerRequest.GetDatabases();
+                GetUsername();
+            }
+            catch (Exception ex)
+            {
+                infoMessage = ex.Message;
+                modalNotificationEditRow = true;
+            }
+        }
+        StateHasChanged();
+    }
+
+    private async void GetUsername()
+    {
+        var answer = await ServerRequest.GetUsernameUser();
+        username = string.Concat(answer.AsEnumerable().Where(ch => !ch.Equals('\"')));
+    }
+    /// <summary>
+    /// Метод перенаправляющий на страницу указанную в параметре url в случае отсутствия jwt токена
+    /// </summary>
+    private bool Navigate(string url)
+    {
+        if (String.IsNullOrEmpty(Http.JwtToken.SecureToken))
+        {
+            //добавить экран загрузки 
+            NavigationManager.NavigateTo(url, true);
+            return true;
+        }
+        return false;
+    }
+
+    /// <summary>
+    /// Смена видимсти настроек аккаунта
+    /// </summary>
+    private void changeVisible()
+    {
+        if (visibleBlockAccount == "visible")
+        {
+            visibleBlockAccount = "collapse";
+            return;
+        }
+        visibleBlockAccount = "visible";
+    }
+
+    /// <summary>
+    /// Удаление cookie для перехода к странице авторизации
+    /// </summary>
+    private async void logOut()
+    {
+        await DeleteCookie();
+        Http.JwtToken.SecureToken = await CheckCookie();
+        if (Navigate("/autorization"))
+        {
+            StateHasChanged();
+            return;
+        }                
+        StateHasChanged();
+    }
+
+    private async void OnRenameUsernameModal(string username)
+    {
+        await ServerRequest.ChangeUsernameUser(username);
+        modalRenameUser = false;
+        GetUsername();
+    }
+
+    /// <summary>
+    /// Вызывается в модальном окне при нажатии на кнопку создать
+    /// </summary>
+    private async void OnCreateModal(string databaseName)
+    {
+        if (databaseName == null)
+        {
+            return;
+        }
+        try
+        {
+            var database = await ServerRequest.CreateDatabase(databaseName);
+            if (databases == null)
+            {
+                databases = new();
+            }
+            databases.Add(database);
+        }
+        catch (Exception ex)
+        {
+            infoMessage = ex.Message;
+            modalNotificationEditRow = true;
+        }
+
+        modalCreateDatabaseShow = false;
+    }
+
+    /// <summary>
+    /// Вызывается в модальном окне при нажатии на кнопку переименовать
+    /// </summary>
+    private async void OnRenameModal(string name)
+    {
+        if (name == null || databaseSelected == null)
+        {
+            return;
+        }
+        try
+        {
+            var tokenTask = Task.Run(() => ServerRequest.RenameDatabase(databaseSelected, name));
+            string token = string.Concat(tokenTask.Result.AsEnumerable().Where(ch => !ch.Equals('\"')));
+            var databaseEditing = databases?.FirstOrDefault(d => d.token == token);
+            if (databaseEditing != null)
+            {
+                databaseEditing.name = name;
+            }
+            modalRenameDatabaseShow = false;
+            if (tokenTask.IsCompleted)
+            {
+                databases = await ServerRequest.GetDatabases();
+            }
+        }
+        catch (Exception ex)
+        {
+            infoMessage = ex.Message;
+            modalNotificationEditRow = true;
+        }
+    }
+
+    /// <summary>
+    /// Вызывается в модальном окне при нажатии на кнопку удалить
+    /// </summary>
+    private async void OnDeleteModal()
+    {
+        if (databaseSelected == null)
+        {
+            return;
+        }
+
+        try
+        {
+            var tokenTask = Task.Run(() => ServerRequest.DeleteDatabase(databaseSelected));
+            string token = string.Concat(tokenTask.Result.AsEnumerable().Where(ch => !ch.Equals('\"')));
+            var databaseEditing = databases?.FirstOrDefault(d => d.token == token);
+            if (databaseEditing == null || databases == null)
+            {
+                return;
+            }
+            modalDeleteDatabaseShow = false;
+
+            if (tokenTask.IsCompleted)
+            {
+                databases = await ServerRequest.GetDatabases();
+            }
+        }
+        catch (Exception ex)
+        {
+            infoMessage = ex.Message;
+            modalNotificationEditRow = true;
+        }
+    }
+
+    /// <summary>
+    /// Вызывается при нажатии на кнопку создать базу данных
+    /// </summary>
+    private void createModal()
+    {
+        modalCreateDatabaseShow = true;
+        StateHasChanged();
+    }
+
+    /// <summary>
+    /// Вызывается при нажатии на иконку старт в списке базы данных
+    /// </summary>
+    private void startClick(DatabaseStructure database)
+    {
+        NavigationManager.NavigateTo($"/workspace/{database.token}", true);
+        StateHasChanged();
+    }
+
+    /// <summary>
+    /// Вызывается при нажатии на иконку карандаша в списке базы данных
+    /// </summary>
+    private void renameClick(DatabaseStructure database)
+    {
+        databaseSelected = database;
+        modalRenameDatabaseShow = true;
+        StateHasChanged();
+    }
+
+    /// <summary>
+    /// Вызывается при нажатии на иконку мусорки в списке базы данных
+    /// </summary>
+    private void deleteClick(DatabaseStructure database)
+    {
+        databaseSelected = database;
+        modalDeleteDatabaseShow = true;
+        StateHasChanged();
+    }
+
+    /// <summary>
+    /// Вызывается в модальном окне при нажатии на закрыть
+    /// </summary>
+    private void OnCloseModal()
+    {
+        modalRenameUser = false;
+        modalRenameDatabaseShow = false;
+        modalCreateDatabaseShow = false;
+        modalDeleteDatabaseShow = false;
+        modalNotificationEditRow = false;
+        StateHasChanged();
+    }
+
+    /// <summary>
+    /// Метод для проверки авторизован ли аккаунт, посредством проверки cookie
+    /// </summary>
+    public async Task<string> CheckCookie()
+    {
+        if (cookie is null)
+        {
+            return "";
+        }
+        return await cookie.GetValue("jwt_token").ConfigureAwait(false);
+    }
+
+    /// <summary>
+    /// Удаляет cookie пользователя для повторной авторизации
+    /// </summary>
+    public async Task DeleteCookie()
+    {
+        if (cookie is null)
+        {
+            return;
+        }
+        await cookie.DeleteValue("jwt_token");
+    }
+
+    public void ShowSqlQueryPage(DatabaseStructure database)
+    {
+        if(oldValueDatabase is null)
+        {
+            oldValueDatabase = database;
+        }
+
+        if (visibleSqlQueryEditor && oldValueDatabase.Equals(database))
+        {
+            visibleSqlQueryEditor = false;
+            return;
+        }
+
+        visibleSqlQueryEditor = true;
+        oldValueDatabase = database;
+        tokenSelectedDatabase = database.token;
+    }
+}

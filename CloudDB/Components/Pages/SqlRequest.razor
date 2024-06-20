@@ -1,0 +1,56 @@
+﻿@page "/editor"
+@using CloudDB.Model
+@inject IJSRuntime js
+
+<div class="d-flex bg-transparent">
+    <div class="p-4" style="width:50%">
+        <label for="flowQuery" class="form-label"> Query to the database with a token @tokenDatabase:</label>
+        <textarea rows="10" class="form-control" id="flowQuery" @bind="@sqlRequest.Query" style="background: rgba(237, 237, 255, 0.67); border: none" />
+    </div>
+    <div class="p-4 d-flex flex-column mt-4">
+        <div class="bg-transparent" @onclick="ExecuteQuery">
+            <i class="fa fa-play playIcon"/>
+        </div>
+        <div class="bg-transparent pt-3" @onclick="@(() => saveToFile())">
+            <i class="fa fa-file-download downloadIcon"/>
+        </div>
+        <div class="bg-transparent pt-3" @onclick="@(() => sqlRequest.Query = string.Empty)">
+            <i class="fa fa-broom broomIcon"/>
+        </div>
+    </div>
+    <div class="p-4" style="width:50%">
+        <label for="flowServer" class="form-label">Answer server:</label>
+        <textarea rows="10" id="flowServer" readonly="false" class="form-control bg-black text-white" @bind="answerServer" style="border: none" />
+    </div>
+</div>
+
+@code
+{
+    private SqlRequestModel sqlRequest = new();
+    private string answerServer;
+    [Parameter]
+    public string tokenDatabase { get; set; }
+
+    private async void saveToFile()
+    {
+        if (string.IsNullOrEmpty(sqlRequest.Query))
+        {
+            return;
+        }
+
+        var text = sqlRequest.Query;
+        var bytes = System.Text.Encoding.UTF8.GetBytes(text);
+        await FileUtil.SaveToFile(js, "Query.txt", bytes);
+    }
+
+    private async void ExecuteQuery()
+    {
+        if (string.IsNullOrEmpty(sqlRequest.Query))
+        {
+            return;
+        }
+
+        answerServer = await ServerRequest.ExecuteSqlQuery(tokenDatabase, sqlRequest.Query);
+        StateHasChanged();
+    }
+}
