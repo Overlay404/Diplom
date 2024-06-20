@@ -1,0 +1,43 @@
+﻿<Window x:Class="PresentationLibrary.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="800" Width="1400"        
+        DataContext="{Binding RelativeSource={RelativeSource Self}}">
+    <Grid>
+        <Border x:Name="NavigateToLeftButton" HorizontalAlignment="Left" Padding="10">
+            <Grid>
+                <TextBlock VerticalAlignment="Center" Text="&lt;" FontSize="20" FontFamily="Comic Sans MS, Verdana"/>
+            </Grid>
+            <Border.Style>
+                <Style TargetType="Border">
+                    <Setter Property="Background" Value="White"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="Azure"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Border.Style>
+        </Border>
+        <Frame x:Name="MyFrame" NavigationUIVisibility="Hidden" Margin="32 0 32 0"/>
+        <Border x:Name="NavigateToRightButton" HorizontalAlignment="Right" Padding="10">
+            <Grid>
+                <TextBlock VerticalAlignment="Center" Text="&gt;" FontSize="20" FontFamily="Comic Sans MS, Verdana"/>
+            </Grid>
+            <Border.Style>
+                <Style TargetType="Border">
+                    <Setter Property="Background" Value="White"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="Azure"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Border.Style>
+        </Border>
+        <TextBlock Text="{Binding PageNow, StringFormat=Страница: {0}}" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="42 0 0 15" FontFamily="Comic Sans MS, Verdana"/>
+    </Grid>
+</Window>
